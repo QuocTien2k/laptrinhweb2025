@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="css/base.css" />
+
+    <!-- Font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+
+    <!-- CUSTOM STYLE -->
+    <style>
+      body {
+        background: var(--background-small);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.6rem;
+      }
+
+      .login-box {
+        width: 360px;
+        background: var(--background-white);
+        padding: 24px;
+        border-radius: 8px;
+        box-shadow: var(--box-shadow);
+      }
+
+      .login-box h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: var(--text-black);
+      }
+
+      .form-control {
+        margin-bottom: 16px;
+      }
+
+      .form-control input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+        font-size: 1.5rem;
+      }
+
+      .form-control.error input {
+        border-color: var(--text-orange);
+      }
+
+      .form-control small {
+        display: block;
+        min-height: 16px; /* giữ chỗ cố định */
+        font-size: 1.3rem;
+        color: var(--text-orange);
+        margin-top: 4px;
+        opacity: 0; /* ẩn nhưng vẫn chiếm chỗ */
+        transition: opacity 0.2s ease;
+      }
+
+      .form-control.error small {
+        opacity: 1;
+      }
+
+      .btn-login {
+        width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+        background: var(--text-blue);
+        color: #fff;
+        font-size: 1.6rem;
+        cursor: pointer;
+      }
+
+      .btn-login:hover {
+        opacity: 0.9;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form class="login-box" id="loginForm">
+      <h2>Đăng nhập</h2>
+
+      <div class="form-control">
+        <input type="text" id="email" placeholder="Email" />
+        <small></small>
+      </div>
+
+      <div class="form-control">
+        <input type="password" id="password" placeholder="Mật khẩu" />
+        <small></small>
+      </div>
+
+      <button class="btn-login" type="submit">Đăng nhập</button>
+
+      <div style="margin-top: 12px; text-align: center">
+        <a href="index.html" style="font-size: 1.4rem; color: var(--text-blue)">
+          ← Quay lại trang chủ
+        </a>
+      </div>
+    </form>
+
+    <!-- SCRIPT XỬ LÝ LOGIN -->
+    <script>
+      const form = document.getElementById("loginForm");
+      const emailInput = document.getElementById("email");
+      const passwordInput = document.getElementById("password");
+
+      function showError(input, message) {
+        const formControl = input.parentElement;
+        formControl.classList.add("error");
+        formControl.querySelector("small").innerText = message;
+      }
+
+      function clearError(input) {
+        const formControl = input.parentElement;
+        formControl.classList.remove("error");
+        formControl.querySelector("small").innerText = "";
+      }
+
+      function isValidEmail(email) {
+        const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        return regex.test(email);
+      }
+
+      /* ====== NEW: CLEAR ERROR WHEN USER STARTS FIXING ====== */
+      [emailInput, passwordInput].forEach((input) => {
+        input.addEventListener("focus", () => clearError(input));
+        input.addEventListener("input", () => clearError(input));
+      });
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        let isError = false;
+
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
+
+        // Validate email
+        if (email === "") {
+          showError(emailInput, "Vui lòng nhập email");
+          isError = true;
+        } else if (!isValidEmail(email)) {
+          showError(emailInput, "Email không đúng định dạng");
+          isError = true;
+        }
+
+        // Validate password
+        if (password === "") {
+          showError(passwordInput, "Vui lòng nhập mật khẩu");
+          isError = true;
+        } else if (password.length < 6) {
+          showError(passwordInput, "Mật khẩu tối thiểu 6 ký tự");
+          isError = true;
+        }
+
+        if (!isError) {
+          localStorage.setItem(
+            "userLogin",
+            JSON.stringify({
+              email,
+              loginAt: new Date().toISOString(),
+            })
+          );
+
+          window.location.href = "index.html";
+        }
+      });
+    </script>
+  </body>
+</html>

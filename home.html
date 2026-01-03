@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Font awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <!--MDB-->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <!--Owl carousel-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+      integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!--Favicon-->
+    <link rel="icon" href="data:;base64,=" />
+    <!--Custom Css-->
+    <link rel="stylesheet" href="../tiki/css/base.css" />
+    <link rel="stylesheet" href="../tiki/css/style.css" />
+    <link rel="stylesheet" href="../tiki/css/responsive.css" />
+    <title>Shipper Code</title>
+    <link
+      rel="icon"
+      href="../tiki/images/shipper-chibi.png"
+      type="image/x-icon"
+    />
+  </head>
+
+  <body>
+    <!--Header-->
+    <div class="header">
+      <div class="header-box">
+        <div class="row header-box-row">
+          <div class="col-md-2 position-relative">
+            <div class="header-logo">
+              <h1><a href="#">QTSHOP</a></h1>
+            </div>
+          </div>
+          <!--Responsive for mobile-->
+          <div class="header-navbar-icon position-absolute">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+          <div class="header-navbar position-absolute hide_modal">
+            <div class="header-navbar-container">
+              <div class="header-navbar_list">
+                <button class="btn btn-dark">123</button>
+                <button class="btn btn-danger">456</button>
+                <button class="btn btn-light">789</button>
+                <button class="btn btn-primary">abc</button>
+              </div>
+            </div>
+          </div>
+          <!--End of Responsive for mobile-->
+          <div class="col-md-6">
+            <div class="header-search">
+              <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+              <img
+                src="https://salt.tikicdn.com/ts/upload/33/d0/37/6fef2e788f00a16dc7d5a1dfc5d0e97a.png"
+                alt=""
+              />
+              <input
+                id="header-search"
+                type="text"
+                placeholder="Bạn tìm gì hôm nay"
+              />
+            </div>
+            <div class="header-product__modal hide_modal">
+              <div class="header-products js-modal-container">
+                <h3>Gợi ý cho bạn</h3>
+              </div>
+            </div>
+            <div class="header-search-bottom">
+              <ul class="header-search-bottom_list">
+                <li><a href="#">oppo,</a></li>
+                <li><a href="#">iphone,</a></li>
+                <li><a href="#">lenovo</a></li>
+                <li><a href="#">asus,</a></li>
+                <li><a href="#">sam sung,</a></li>
+                <li><a href="#">macbook</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="header-icon">
+              <div class="header-icon__list active">
+                <i class="fa-solid fa-house"><a href="">Trang chủ</a></i>
+              </div>
+              <div class="header-icon__list">
+                <i class="fa-solid fa-crown"><a href="#">VIP</a></i>
+              </div>
+              <div class="header-icon__list">
+                <i class="fa-regular fa-face-smile-wink"
+                  ><a href="login.html">Tài khoản</a></i
+                >
+              </div>
+              <div class="header-icon__list">
+                <i
+                  class="fa-solid fa-cart-plus position-relative"
+                  style="cursor: pointer"
+                ></i>
+                <span class="position-absolute">0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End of header-->
+
+    <!--Slideshow-->
+    <div class="container-fluid slide__show">
+      <div class="row flex-column flex-md-row align-items-center g-0">
+        <div class="col-md-2">
+          <div class="list-menu bg-white">
+            <h3>Nổi bật</h3>
+            <div class="list-menu-items d-flex flex-column align-items-center">
+              <div
+                class="item d-flex align-items-center"
+                title="Giá tốt mỗi ngày"
+              >
+                <img
+                  src="https://salt.tikicdn.com/cache/100x100/ts/upload/3c/ce/96/db8c083610e45b78d8f7662f0013faa8.png.webp"
+                  class="img-fluid"
+                  alt=""
+                />
+                <div class="item-link">
+                  <a href="#">Giá tốt mỗi ngày</a>
+                </div>
+              </div>
+              <div class="item d-flex align-items-center" title="Mã giảm giá">
+                <img
+                  src="https://salt.tikicdn.com/cache/100x100/ts/upload/20/68/cf/6d4adbdbcd1c35b0a438a655d9a420d0.png.webp"
+                  class="img-fluid"
+                  alt=""
+                />
+                <div class="item-link">
+                  <a href="#">Mã giảm giá</a>
+                </div>
+              </div>
+              <div
+                class="item d-flex align-items-center"
+                title="Đóng tiền, nạp thẻ"
+              >
+                <img
+                  src="https://salt.tikicdn.com/cache/100x100/ts/upload/4d/a3/cb/c86b6e4f17138195c026437458029d67.png.webp"
+                  class="img-fluid"
+                  alt=""
+                />
+                <div class="item-link">
+                  <a href="#">Đóng tiền, nạp thẻ</a>
+                </div>
+              </div>
+              <div
+                class="item d-flex align-items-center"
+                title="Mua trước trả sau"
+              >
+                <img
+                  src="https://salt.tikicdn.com/cache/100x100/ts/tmp/6f/4e/41/93f72f323d5b42207ab851dfa39d44fb.png.webp"
+                  class="img-fluid"
+                  alt=""
+                />
+                <div class="item-link">
+                  <a href="#">Mua trước trả sau</a>
+                </div>
+              </div>
+              <div
+                class="item d-flex align-items-center"
+                title="Ưu đãi thẻ, ví"
+              >
+                <img
+                  src="https://salt.tikicdn.com/cache/100x100/ts/upload/1e/27/a7/e2c0e40b6dc45a3b5b0a8e59e2536f23.png.webp"
+                  class="img-fluid"
+                  alt=""
+                />
+                <div class="item-link">
+                  <a href="#">Ưu đãi thẻ, ví</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7 animated fadeIn slide__show-align">
+          <!--Own carousel-->
+          <div class="owl-carousel header-carousel">
+            <!--List items-->
+            <div class="owl-carousel-item">
+              <img
+                class="img-fluid"
+                src="https://lzd-img-global.slatic.net/g/skyline/i8/922ac67f98a549b5a4081c73851201af-1360-480.jpg_2200x2200q75.jpg_.webp"
+                alt=""
+              />
+            </div>
+            <div class="owl-carousel-item">
+              <img
+                class="img-fluid"
+                src="https://lzd-img-global.slatic.net/g/skyline/i8/726ad0847a9347cd8edd04a95d12d7d5-1976-688.jpg_2200x2200q75.jpg_.webp"
+                alt=""
+              />
+            </div>
+            <div class="owl-carousel-item">
+              <img
+                class="img-fluid"
+                src="https://cf.shopee.vn/file/vn-50009109-f81686cd01abc90c97b83e72fe329fbc"
+                alt=""
+              />
+            </div>
+            <div class="owl-carousel-item">
+              <img
+                class="img-fluid"
+                src="https://cf.shopee.vn/file/vn-50009109-70e11a0bc8ac0e7f45d32e62eb494bd9"
+                alt=""
+              />
+            </div>
+            <div class="owl-carousel-item">
+              <img
+                class="img-fluid"
+                src="https://theme.hstatic.net/1000026716/1000440777/14/slideshow_4.jpg?v=34656"
+                alt=""
+              />
+            </div>
+            <div class="owl-carousel-item">
+              <img
+                class="img-fluid"
+                src="https://theme.hstatic.net/1000026716/1000440777/14/slideshow_6.jpg?v=34656"
+                alt=""
+              />
+            </div>
+            <div class="owl-carousel-item">
+              <img
+                class="img-fluid"
+                src="https://salt.tikicdn.com/cache/w1080/ts/tikimsp/08/c9/3b/fb0a4e51f40a92b20e3c8cae45ba03dc.png.webp"
+                alt=""
+              />
+            </div>
+            <div class="owl-carousel-item">
+              <img
+                class="img-fluid"
+                src="https://salt.tikicdn.com/cache/w1080/ts/tikimsp/cf/06/5f/8bd6421d6bc979780ef4dc1061bf0ada.png.webp"
+                alt=""
+              />
+            </div>
+          </div>
+          <!--End of Own carousel-->
+        </div>
+        <div class="col-md-3">
+          <div class="slide__show-img">
+            <img
+              src="https://salt.tikicdn.com/cache/w750/ts/tikimsp/44/d4/0b/6cfa49f813e075f9aa11ac1d54be1c63.png.webp"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End of slideshow-->
+
+    <!--Trademark-->
+    <div class="container-fluid trade__mark mb-3">
+      <div class="row g-4">
+        <div class="trade-mark-official d-flex align-items-center">
+          <h3>Thương hiệu chính hãng</h3>
+          <span
+            ><img
+              src="https://salt.tikicdn.com/ts/tka/71/61/5d/dee57a81920f1f4e4dcc3b5878d9bfed.png"
+              alt=""
+          /></span>
+        </div>
+        <div class="col-md-2">
+          <div class="trade_marks">
+            <div class="trade_mark_img">
+              <img
+                src="https://salt.tikicdn.com/ts/tikimsp/7b/9a/6d/6abbe34b1f77f98f9b7a35184ced9a0f.png"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="trade_marks">
+            <div class="trade_mark_img">
+              <img
+                src="https://salt.tikicdn.com/ts/tikimsp/d3/e4/cf/f64d29a80d488b2fc78cfa31bff23fd2.jpeg"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="trade_marks">
+            <div class="trade_mark_img">
+              <img
+                src="https://salt.tikicdn.com/ts/tikimsp/c2/a8/83/e02b41b8022afc31aed2f3b093ea87c5.jpg"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="trade_marks">
+            <div class="trade_mark_img">
+              <img
+                src="https://salt.tikicdn.com/ts/tikimsp/9c/24/71/170c8c1c50bd765e0ffdc374e8d90ed9.jpeg"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="trade_marks">
+            <div class="trade_mark_img">
+              <img
+                src="https://salt.tikicdn.com/ts/tikimsp/6f/71/db/7cb66560e84a7cdb794dc6461d0105b1.jpeg"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="trade_marks">
+            <div class="trade_mark_img">
+              <img
+                src="https://salt.tikicdn.com/ts/tikimsp/a5/37/b5/a70741b377ca8a803d90cbcefde7dd08.png"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End of trademark-->
+
+    <!--Category-->
+    <div class="container-fluid category mt-3">
+      <div class="row">
+        <div class="col-md-2 mt-4">
+          <div class="category-list">
+            <h3 class="text">Danh mục</h3>
+            <div class="category-list-btn">
+              <div class="category-list-info">
+                <img
+                  src="https://salt.tikicdn.com/cache/100x100/ts/upload/08/2f/14/fd9d34a8f9c4a76902649d04ccd9bbc5.png.webp"
+                  alt=""
+                  class="img-fluid"
+                />
+                <button
+                  class="btn btn-value active"
+                  type="all"
+                  onclick="filterProduct('all')"
+                >
+                  Tất cả
+                </button>
+              </div>
+              <div class="category-list-info">
+                <img
+                  src="https://salt.tikicdn.com/cache/100x100/ts/category/54/c0/ff/fe98a4afa2d3e5142dc8096addc4e40b.png.webp"
+                  alt=""
+                  class="img-fluid"
+                />
+                <button
+                  class="btn btn-value"
+                  type="oppo"
+                  onclick="filterProduct('oppo')"
+                >
+                  Oppo
+                </button>
+              </div>
+              <div class="category-list-info">
+                <img
+                  src="https://salt.tikicdn.com/cache/280x280/ts/product/d5/a6/a1/5478742e90f562765822ec4bdf7943ad.jpg.webp"
+                  alt=""
+                  class="img-fluid"
+                />
+                <button
+                  class="btn btn-value"
+                  type="realme"
+                  onclick="filterProduct('realme')"
+                >
+                  Realme
+                </button>
+              </div>
+              <div class="category-list-info">
+                <img
+                  src="https://salt.tikicdn.com/cache/280x280/ts/product/39/9f/32/94ab484334befb2106ab6d0479fe6d7d.jpg.webp"
+                  alt=""
+                  class="img-fluid"
+                />
+                <button
+                  class="btn btn-value"
+                  type="vivo"
+                  onclick="filterProduct('vivo')"
+                >
+                  ViVo
+                </button>
+              </div>
+              <div class="category-list-info">
+                <img
+                  src="https://salt.tikicdn.com/cache/280x280/ts/product/98/28/4a/7ec6ad5943179c4b2ad5ae8b79798599.jpeg.webp"
+                  alt=""
+                  class="img-fluid"
+                />
+                <button
+                  class="btn btn-value"
+                  type="samsung"
+                  onclick="filterProduct('samsung')"
+                >
+                  SamSung
+                </button>
+              </div>
+              <div class="category-list-info">
+                <img
+                  src="https://lzd-img-global.slatic.net/g/p/425ad17b2f1b8b49f0be6c5b41edb5ba.jpg_400x400q75.jpg_.webp"
+                  alt=""
+                  class="img-fluid"
+                />
+                <button
+                  class="btn btn-value"
+                  type="huawei"
+                  onclick="filterProduct('huawei')"
+                >
+                  Huawei
+                </button>
+              </div>
+              <div class="category-list-info">
+                <img
+                  src="https://lzd-img-global.slatic.net/g/p/a89cc7c956bdb60e958f889ccdb083a1.jpg_400x400q75.jpg_.webp"
+                  alt=""
+                  class="img-fluid"
+                />
+                <button
+                  class="btn btn-value"
+                  type="asus"
+                  onclick="filterProduct('asus')"
+                >
+                  Laptop Asus
+                </button>
+              </div>
+              <div class="category-list-info">
+                <img
+                  src="https://salt.tikicdn.com/cache/280x280/ts/product/02/da/99/365a3bfac744b8b1a75a2b007c79a9a3.png.webp"
+                  alt=""
+                  class="img-fluid"
+                />
+                <button
+                  class="btn btn-value"
+                  type="macbook"
+                  onclick="filterProduct('macbook')"
+                >
+                  Macbook
+                </button>
+              </div>
+              <div class="category-list-info">
+                <img
+                  src="https://salt.tikicdn.com/cache/280x280/ts/product/c8/09/8a/d6a01751c78f0a6dfb4b8f92d329bc04.jpg.webp"
+                  alt=""
+                  class="img-fluid"
+                />
+                <button
+                  class="btn btn-value"
+                  type="tivi"
+                  onclick="filterProduct('tivi')"
+                >
+                  Tivi
+                </button>
+              </div>
+              <div class="category-list-info">
+                <img
+                  src="https://salt.tikicdn.com/cache/280x280/ts/product/5b/aa/2c/658a37abc96fdd97759c9826bd1761de.png.webp"
+                  alt=""
+                  class="img-fluid"
+                />
+                <button
+                  class="btn btn-value"
+                  type="accessory"
+                  onclick="filterProduct('accessory')"
+                >
+                  Phụ kiện
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-10 mt-4 category-list">
+          <div class="list-for-you">
+            <div class="d-flex align-items-center justify-content-between p-3">
+              <h3 class="text">Gợi ý cho bạn hôm nay</h3>
+              <div class="digital-clock">
+                <span id="hours">00</span>
+                <span>:</span>
+                <span id="minutes">00</span>
+                <span>:</span>
+                <span id="seconds">00</span>
+                <span id="session"></span>
+              </div>
+            </div>
+            <div class="services">
+              <div class="service d-flex flex-column align-items-center g-4">
+                <img
+                  src="https://salt.tikicdn.com/cache/w100/ts/personalish/f9/27/b5/3a8e2286a1c8fb91b67acc5ee35f82f0.png.webp"
+                  class="img-fluid"
+                  alt=""
+                />
+                <a href="#">Dành cho bạn</a>
+              </div>
+              <div class="service d-flex flex-column align-items-center g-4">
+                <img
+                  src="https://salt.tikicdn.com/cache/w100/ts/personalish/08/b8/5c/5c6327fd3cf12c534bff4a55dab2f12d.png.webp"
+                  class="img-fluid"
+                  alt=""
+                />
+                <a href="#">Dịch vụ số</a>
+              </div>
+              <div class="service d-flex flex-column align-items-center g-4">
+                <img
+                  src="https://salt.tikicdn.com/cache/w100/ts/personalish/41/99/9a/8898607d7fca4b79775a708c57a8152f.png.webp"
+                  class="img-fluid"
+                  alt=""
+                />
+                <a href="#">Deal Siêu Hot</a>
+              </div>
+              <div class="service d-flex flex-column align-items-center g-4">
+                <img
+                  src="https://salt.tikicdn.com/cache/w100/ts/personalish/0f/59/9d/215fa18ef72e430eefcbfe5355cab8e2.png.webp"
+                  class="img-fluid"
+                  alt=""
+                />
+                <a href="#">Rẻ vô đối</a>
+              </div>
+              <div class="service d-flex flex-column align-items-center g-4">
+                <img
+                  src="https://product.hstatic.net/1000026716/product/post-04_8b786a7bdf644f449950add9e7cf1e28.jpg"
+                  class="img-fluid"
+                  alt=""
+                />
+                <a href="#">Xu hướng công nghệ</a>
+              </div>
+              <div class="service d-flex flex-column align-items-center g-4">
+                <img
+                  src="https://salt.tikicdn.com/cache/w100/ts/personalish/b9/e1/a9/65ad8ac4e167c5009ae3f7c80395a5a4.png.webp"
+                  class="img-fluid"
+                  alt=""
+                />
+                <a href="#">Trending</a>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid filter-data mt-4">
+            <div class="row"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End of category-->
+
+    <!--Footer-->
+    <footer class="container-fluid p-3">
+      <div class="row p-3">
+        <div class="col-md-2">
+          <div class="customer-care">
+            <h2>Hỗ trợ khách hàng</h2>
+            <div class="service-care">
+              <a href="#"
+                ><span>Hotline:</span>1900-**6* <br /><i
+                  >(1000 đ/phút, 8-21h kể cả T7-CN)</i
+                ></a
+              >
+              <a href="#">Các câu hỏi thường gặp</a>
+              <a href="#">Gửi hỗ trợ yêu cầu</a>
+              <a href="#">Hướng dẫn đặt hàng</a>
+              <a href="#">Phương thức vẫn chuyển</a>
+              <a href="#">Chính sách đổi trả</a>
+              <a href="#">Hướng dẫn trả góp</a>
+              <a href="#">Chính sách hàng nhập khẩu</a>
+              <a href="#">hỗ trợ khách hàng: hotro@qtshop.vn</a>
+              <a href="#">Báo lỗi bảo mật: sercurity@qtshop.vn</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="about-us">
+            <h2>Về QT Shop</h2>
+            <div class="about-us-list">
+              <a href="#">Giới thiệu về QT</a>
+              <a href="#">QT Blog</a>
+              <a href="#">Tuyển dụng</a>
+              <a href="#">Chính sách bảo mật thanh toán</a>
+              <a href="#">Chính sách bảo mật thông tin tin cá nhân</a>
+              <a href="#">Chính sách giải quyết khiếu nại</a>
+              <a href="#">Điều khoản sử dụng</a>
+              <a href="#">Giới thiệu QT xu</a>
+              <a href="#">Bán hàng doanh nghiệp</a>
+              <a href="#">Điều kiện vận chuyển</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 payment_delivery">
+          <div class="payment">
+            <h2>Phương thức thanh toán</h2>
+            <div class="payment_img">
+              <img
+                src="https://cf.shopee.vn/file/d4bbea4570b93bfd5fc652ca82a262a8"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://cf.shopee.vn/file/a0a9062ebe19b45c1ae0506f16af5c16"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://cf.shopee.vn/file/38fd98e55806c3b2e4535c4e4a6c4c08"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://cf.shopee.vn/file/bc2a874caeee705449c164be385b796c"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://lzd-img-global.slatic.net/g/tps/tfs/O1CN0174CwSq2NjastWFX1u_!!19999999999999-2-tps.png"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://lzd-img-global.slatic.net/g/tps/tfs/TB10rN4lnM11u4jSZPxXXahcXXa-1024-1024.png"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="data:image/png;base64,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"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://downloadlogomienphi.com/sites/default/files/logos/download-logo-napas-mien-phi.jpg"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+          </div>
+          <div class="delivery">
+            <h2>Đơn vị vận chuyển</h2>
+            <div class="delivery_img">
+              <img
+                src="https://cf.shopee.vn/file/5e7282bd0f7ee0872fdb0bd1d40fbe9e"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://cf.shopee.vn/file/77bf96a871418fbc21cc63dd39fb5f15"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://lzd-img-global.slatic.net/g/tps/imgextra/i3/O1CN01gjgEds1LYU0p2Pl9N_!!6000000001311-2-tps-96-70.png"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://cf.shopee.vn/file/59270fb2f3fbb7cbc92fca3877edde3f"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://cf.shopee.vn/file/6e3be504f08f88a15a28a9a447d94d3d"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://cf.shopee.vn/file/0b3014da32de48c03340a4e4154328f6"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="cooperation">
+            <h2>Hợp tác và liên kết</h2>
+            <div class="cooperation-descrip">
+              <a href="#">Quy chế hoạt động sàn GDTMĐT</a>
+              <a href="#">Bán hàng cùng QT</a>
+            </div>
+            <h2 class="mt-3">Chứng nhận bởi</h2>
+            <div class="cooperation-img">
+              <img
+                src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/bo-cong-thuong-2.png"
+                alt=""
+                class="img-fluid"
+              />
+              <img
+                src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/bo-cong-thuong.svg"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="download-app">
+            <h2>Tải ứng dụng trên điện thoại</h2>
+            <div class="download mt-3">
+              <img
+                src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/qrcode.png"
+                alt=""
+                class="img-fluid img_qr"
+              />
+              <div class="download-mobile">
+                <img
+                  src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/appstore.png"
+                  alt=""
+                  class="img-fluid"
+                />
+                <img
+                  src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/playstore.png"
+                  alt=""
+                  class="img-fluid"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="contact-us">
+            <h2>Kết nối với chúng tôi</h2>
+            <div class="social">
+              <a href="#"><i class="fa-brands fa-facebook"></i></a>
+              <a href="#"><i class="fa-brands fa-youtube"></i></a>
+              <a href="#">
+                <!-- <i class="fa-brands fa-instagram"></i> -->
+                <img
+                  src="data:image/jpeg;base64,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"
+                  alt=""
+                  class="img-fluid"
+                />
+              </a>
+              <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="address">
+        <div class="address-infor">
+          <p>
+            Trụ sở chính: Tòa nhà Viettel, Số ***, đường **********, phường **,
+            quận 10, Thành phố Hồ Chí Minh
+          </p>
+          <p>
+            QT nhận đặt hàng trực tuyến và giao hàng tận nơi, chưa hỗ trợ mua và
+            nhận hàng trực tiếp tại văn phòng hoặc trung tâm xử lý đơn hàng
+          </p>
+          <p>
+            Giấy chứng nhận Đăng ký Kinh doanh số ********** do Sở Kế hoạch và
+            Đầu tư Thành phố Hồ Chí Minh cấp lần đầu ngày 06/01/2010 và sửa đổi
+            lần thứ 23 ngày ********
+          </p>
+          <p>© 2022 - Bản quyền của Công ty TNHH QT</p>
+          <p>
+            <marquee
+              width="30%"
+              behavior="scroll"
+              scrolldelay="0.3s"
+              style="font-size: 13px"
+              ><i class="fa-solid fa-face-smile-beam"></i> Cảm ơn bạn đã trải
+              nghiệm Website này! <i class="fa-solid fa-face-smile-beam"></i
+            ></marquee>
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!--End of footer-->
+
+    <!--Modal buy not account-->
+    <div class="modal__notice js-modal">
+      <div class="modal__container js-modal-container">
+        <div class="modal__close js-modal-close">
+          <i class="fa-regular fa-circle-xmark"></i>
+        </div>
+        <header class="modal__header">
+          <i class="far fa-bell"></i>
+          <h2>Thông báo</h2>
+          <i class="far fa-bell"></i>
+        </header>
+        <div class="modal__body">
+          <p>Bạn cần phải đăng nhập để trải nghiệm Website</p>
+          <span><i class="fa-solid fa-right-long"></i></span
+          ><a href="login.html">Đăng ký tài khoản</a
+          ><span><i class="fa-solid fa-left-long"></i></span>
+        </div>
+      </div>
+    </div>
+
+    <!--End of modal buy not account-->
+    <!--Jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--Owl carousel-->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+      integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="../tiki/js/home.js"></script>
+  </body>
+</html>

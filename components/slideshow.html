@@ -1,0 +1,84 @@
+<!-- Slideshow Component -->
+<section class="slide__show">
+  <div class="container-fluid">
+    <div class="row g-5 align-items-center flex-column flex-md-row">
+      <!-- LEFT MENU -->
+      <div class="col-md-2">
+        <aside class="list-menu bg-white">
+          <h3>Nổi bật</h3>
+          <ul class="list-menu-items">
+            <li class="item">
+              <img
+                src="https://salt.tikicdn.com/cache/100x100/ts/upload/3c/ce/96/db8c083610e45b78d8f7662f0013faa8.png.webp"
+              />
+              <a href="#">Giá tốt mỗi ngày</a>
+            </li>
+            <li class="item">
+              <img
+                src="https://salt.tikicdn.com/cache/100x100/ts/upload/20/68/cf/6d4adbdbcd1c35b0a438a655d9a420d0.png.webp"
+              />
+              <a href="#">Mã giảm giá</a>
+            </li>
+            <li class="item">
+              <img
+                src="https://salt.tikicdn.com/cache/100x100/ts/upload/4d/a3/cb/c86b6e4f17138195c026437458029d67.png.webp"
+              />
+              <a href="#">Đóng tiền, nạp thẻ</a>
+            </li>
+          </ul>
+        </aside>
+      </div>
+
+      <!-- CENTER CAROUSEL -->
+      <div class="col-md-7 slide__show-align">
+        <div class="owl-carousel header-carousel"></div>
+      </div>
+
+      <!-- RIGHT BANNER -->
+      <div class="col-md-3">
+        <div class="slide__show-img">
+          <img
+            src="https://salt.tikicdn.com/cache/w750/ts/tikimsp/44/d4/0b/6cfa49f813e075f9aa11ac1d54be1c63.png.webp"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= JS CHỈ CHO SLIDESHOW ================= -->
+<script>
+  $(function () {
+    /* ===== 1. MẢNG ẢNH SLIDESHOW ===== */
+    const slideImages = [
+      "https://lzd-img-global.slatic.net/g/skyline/i8/922ac67f98a549b5a4081c73851201af-1360-480.jpg_2200x2200q75.jpg_.webp",
+      "https://lzd-img-global.slatic.net/g/skyline/i8/726ad0847a9347cd8edd04a95d12d7d5-1976-688.jpg_2200x2200q75.jpg_.webp",
+      "https://cf.shopee.vn/file/vn-50009109-f81686cd01abc90c97b83e72fe329fbc",
+      "https://cf.shopee.vn/file/vn-50009109-70e11a0bc8ac0e7f45d32e62eb494bd9",
+    ];
+
+    const $carousel = $(".header-carousel");
+
+    /* ===== 2. RENDER HTML ===== */
+    slideImages.forEach((img) => {
+      $carousel.append(`
+        <div class="owl-carousel-item">
+          <img src="${img}" />
+        </div>
+      `);
+    });
+
+    /* ===== 3. KHỞI TẠO OWL CAROUSEL ===== */
+    $carousel.owlCarousel({
+      items: 1,
+      loop: true,
+      nav: true,
+      dots: false,
+      margin: 20,
+      autoplay: true,
+      autoplayTimeout: 4000,
+      autoplayHoverPause: true,
+      smartSpeed: 600,
+    });
+  });
+</script>

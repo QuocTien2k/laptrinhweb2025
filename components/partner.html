@@ -1,0 +1,133 @@
+<section class="partner-section">
+  <div class="partner-container">
+    <h2 class="partner-title">Đối tác vận chuyển</h2>
+
+    <div class="owl-carousel partner-carousel">
+      <div class="partner-item">
+        <img
+          src="https://jtexpress.vn/themes/jtexpress/assets/images/logo.png"
+          alt="J&T Express"
+        />
+      </div>
+
+      <div class="partner-item">
+        <img
+          src="https://ipostal.vnpost.vn/storage/uploads/logo/1733219138zIUp0p13gIcxf2slTCDyxRROe8h5Ei.png"
+          alt="Vietnam Post"
+        />
+      </div>
+
+      <div class="partner-item">
+        <img
+          src="https://theme.hstatic.net/200000472237/1001083717/14/logo.png?v=879"
+          alt="Giao Hàng Nhanh"
+        />
+      </div>
+
+      <div class="partner-item">
+        <img src="https://ghtk.vn/assets/logo.svg" alt="Giao Hàng Tiết Kiệm" />
+      </div>
+
+      <div class="partner-item">
+        <img
+          src="https://dangkydichvu.247express.vn/logo-20yrs-1-1.png"
+          alt="247 Express"
+        />
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .partner-section {
+      background: var(--section-bg-soft);
+      padding: var(--section-padding-y) 0;
+    }
+
+    .partner-container {
+      max-width: 1500px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 1.6rem;
+      padding: 2.4rem;
+    }
+
+    .partner-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text-black);
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .partner-item {
+      background: #ffffff;
+      height: 90px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      transition: 0.3s ease;
+    }
+
+    .partner-item img {
+      max-width: 80%;
+      max-height: 50px;
+      object-fit: contain;
+      opacity: 0.85;
+      transition: 0.3s ease;
+    }
+
+    .partner-item:hover {
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+    }
+
+    .partner-item:hover img {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+
+    /* Owl custom spacing */
+    .partner-carousel .owl-stage {
+      display: flex;
+      align-items: center;
+    }
+
+    .partner-carousel .owl-item {
+      padding: 0 8px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .partner-item {
+        height: 80px;
+      }
+    }
+  </style>
+
+  <script>
+    $(document).ready(function () {
+      $(".partner-carousel").owlCarousel({
+        loop: true,
+        margin: 16,
+        autoplay: true,
+        autoplayTimeout: 4000,
+        autoplaySpeed: 800,
+        autoplayHoverPause: true,
+        dots: false,
+        nav: false,
+        responsive: {
+          0: {
+            items: 2,
+          },
+          576: {
+            items: 3,
+          },
+          992: {
+            items: 5,
+          },
+        },
+      });
+    });
+  </script>
+</section>

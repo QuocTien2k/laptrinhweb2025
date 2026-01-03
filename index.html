@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <!-- Owl carousel -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <title>Shipper Code</title>
+    <link rel="icon" href="images/shipper-chibi.png" type="image/x-icon" />
+  </head>
+  <body>
+    <!-- Header -->
+    <div id="header-component"></div>
+
+    <!-- Slideshow -->
+    <div id="slideshow-component"></div>
+
+    <!-- Brand -->
+    <div id="brand-component"></div>
+
+    <!-- Product + Filter -->
+    <section class="product-section container-fluid">
+      <!-- SECTION TITLE -->
+      <div class="section-header px-4 mb-4 text-center">
+        <h2 class="section-title">Danh sách sản phẩm</h2>
+        <p class="section-desc">
+          Khám phá các sản phẩm phù hợp với nhu cầu của bạn
+        </p>
+      </div>
+
+      <div class="row px-4 gx-4 gx-xl-5">
+        <!-- FILTER -->
+        <div class="col-md-3 product-filter card">
+          <div class="card-body">
+            <h4 class="filter-title">Bộ lọc</h4>
+
+            <!-- Brand -->
+            <div class="filter-group">
+              <h5>Thương hiệu</h5>
+              <div id="filter-brand"></div>
+            </div>
+
+            <!-- Price -->
+            <div class="filter-group">
+              <h5>Giá tiền</h5>
+              <select id="filter-price" class="form-select">
+                <option value="">Tất cả</option>
+                <option value="0-3000000">Dưới 3 triệu</option>
+                <option value="3000000-7000000">3 - 7 triệu</option>
+                <option value="7000000-15000000">7 - 15 triệu</option>
+                <option value="15000000-999999999">Trên 15 triệu</option>
+              </select>
+            </div>
+
+            <button id="reset-filter" class="btn btn-outline-primary mt-3">
+              Reset
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUCT LIST -->
+        <div class="col-md-9 ps-md-4">
+          <div class="product-wrapper card">
+            <div class="card-body">
+              <!-- PRODUCT GRID -->
+              <div id="product-list" class="row g-4"></div>
+
+              <!-- VIEW ALL -->
+              <div class="view-all-wrapper text-center">
+                <a href="products.html" class="btn-view-all">
+                  Xem tất cả sản phẩm
+                  <i class="fa-solid fa-arrow-right ms-2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partner -->
+    <div id="partner-component"></div>
+
+    <!-- Footer -->
+    <!-- <div id="footer-component"></div> -->
+
+    <!-- jQuery PHẢI ĐẶT TRƯỚC -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Owl Carousel PHẢI ĐẶT TRƯỚC component -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <!-- Load components -->
+    <script src="js/components.js"></script>
+    <script type="module" src="js/index.js"></script>
+  </body>
+</html>

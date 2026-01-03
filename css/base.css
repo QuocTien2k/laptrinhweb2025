@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@500;600&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    transition: all linear 0.6s;
+    list-style: none;
+}
+:root{
+    --text-blue: rgb(10, 104, 255);
+    --text-input: rgb(128, 128, 137);
+    --text-black: rgb(39, 39, 42);
+    --background-small: linear-gradient(rgba(255, 255, 255, 0) 22.49%, rgb(255, 255, 255) 73.49%), 
+                        linear-gradient(264.03deg, rgb(220, 229, 251) -10.27%, rgb(234, 236, 255) 35.65%, rgb(213, 236, 253) 110.66%);
+    --text-orange: rgb(255, 66, 79);
+    --color-star: rgb(253, 216, 54);
+    --background-hover: rgba(128, 128, 137, 0.12);
+    --background-white: rgb(255, 255, 255);
+    --background-slide: rgba(0, 96, 255, 0.05);
+    --background-trade-mark: linear-gradient(rgba(255, 255, 255, 0) 22.49%, rgb(255, 255, 255) 73.49%), linear-gradient(264.03deg, rgb(220, 229, 251) -10.27%, rgb(234, 236, 255) 35.65%, rgb(213, 236, 253) 110.66%);
+    --background-modal: rgba(0, 0, 0, 0.53);
+    --background-a-hover: rgba(39, 39, 42, 0.12);
+    --box-shadow: rgb(0 0 0 / 28%) 0px 6px 12px 0px;
+    --text-green: rgb(0, 171, 85);
+    --background-green-hover: rgba(0, 171, 85, 0.12);
+    --section-padding-y: 4.8rem;
+    --section-padding-y-lg: 6.4rem;
+    --section-bg-soft: #f5f6fa;
+    --section-bg-white: #ffffff;
+
+}  
+
+html{
+    font-size: 62.5%;
+    font-family: 'Nunito', sans-serif;
+    scroll-padding-top: 5.5rem;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body{
+    background: #f5f6fa;
+}
+
+@keyframes left {
+    from {
+        left: -100%;
+    }
+
+    to {
+        left: 0;
+    }
+}
+button.active{
+    color: red;
+}
+/*Digital clock*/
+.container-clock{
+    width: 100%;
+}
+.digital-clock{
+    font-weight: bold;
+    color: var(--text-black);
+    font-size: 16px;
+    box-shadow: var(--box-shadow);
+    border-radius: 8px;
+}
+/*End of digital clock*/
+table #mycart tr th{
+    border: none;
+}
+th,td{
+    text-align: center;
+    border-bottom: 1px solid var(--text-black);
+    font-size: 12px;
+}
+th{
+    padding: 10px;
+}
+td img{
+    width: 100%;
+}

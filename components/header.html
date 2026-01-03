@@ -1,0 +1,683 @@
+<style>
+  /* ===== HEADER AUTH ===== */
+  .header-auth {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.4rem;
+  }
+
+  /* ===== GUEST ===== */
+  .auth-guest a {
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-login {
+    color: var(--text-blue);
+    border: 1px solid var(--text-blue);
+    background: transparent;
+  }
+
+  .btn-login:hover {
+    background: var(--text-blue);
+    color: #fff;
+  }
+
+  .btn-register {
+    background: var(--text-blue);
+    color: #fff;
+  }
+
+  .btn-register:hover {
+    opacity: 0.9;
+  }
+
+  /* ===== USER ===== */
+  .auth-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* Email pill */
+  .user-email {
+    max-width: 180px;
+    padding: 6px 12px;
+    background: var(--background-small);
+    border-radius: 20px;
+    font-size: 1.3rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: default;
+  }
+
+  /* Logout button */
+  .btn-logout {
+    border: none;
+    background: transparent;
+    color: var(--text-orange);
+    cursor: pointer;
+    font-size: 1.4rem;
+    transition: color 0.2s ease;
+  }
+
+  .btn-logout:hover {
+    color: #ff3b3b;
+    text-decoration: underline;
+  }
+
+  /* ===== CART ICON ===== */
+  .header-cart {
+    position: relative;
+    color: var(--text-black);
+    font-size: 1.8rem;
+    padding: 6px;
+    border-radius: 50%;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .header-cart:hover {
+    background: var(--background-small);
+    color: var(--text-blue);
+  }
+
+  .cart-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #ff3b3b;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  /* ===== CART MODAL ===== */
+  .cart-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease;
+  }
+
+  .cart-modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .cart-modal {
+    width: 560px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.95) translateY(10px);
+    opacity: 0;
+    transition: all 0.25s ease;
+  }
+
+  /* Khi mở */
+  .cart-modal-overlay.show .cart-modal {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+
+  /* Footer fixed cảm giác chắc hơn */
+  .cart-footer {
+    border-top: 1px solid #eee;
+  }
+
+  .cart-header,
+  .cart-footer {
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .cart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .cart-header h4 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--text-black);
+  }
+
+  .cart-close {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: #666;
+    transition: all 0.2s ease;
+  }
+
+  .cart-close:hover {
+    background: var(--background-small);
+    color: #ff3b3b;
+  }
+
+  .cart-body {
+    padding: 16px;
+    max-height: 320px;
+    overflow-y: auto;
+    font-size: 1.4rem;
+  }
+
+  .cart-empty {
+    font-size: 1.4rem;
+    color: #888;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .cart-item {
+    display: flex;
+    gap: 14px;
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .cart-item:last-child {
+    border-bottom: none;
+  }
+
+  .cart-item img {
+    width: 72px;
+    height: 72px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  .cart-info {
+    flex: 1;
+  }
+
+  .cart-info h6 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+
+  .cart-info p {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-orange);
+    margin-bottom: 10px;
+  }
+
+  .cart-quantity {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .cart-quantity button {
+    width: 32px;
+    height: 32px;
+    font-size: 1.6rem;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .cart-quantity button:hover {
+    background: var(--background-small);
+  }
+
+  .cart-quantity span {
+    min-width: 28px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .cart-footer {
+    padding: 16px;
+    border-top: 1px solid #eee;
+  }
+
+  .cart-total {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+  }
+
+  .cart-total strong {
+    font-size: 1.8rem;
+    color: var(--text-orange);
+  }
+
+  .cart-info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  .cart-remove-item {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .cart-remove-item:hover {
+    color: #a71d2a;
+  }
+
+  .cart-actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .btn-clear-cart {
+    flex: 1;
+    padding: 12px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #dc3545;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-clear-cart:hover {
+    background: #ffecec;
+  }
+
+  .btn-checkout {
+    flex: 2;
+    padding: 12px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+
+  @keyframes slideUpFade {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ========================= THANK YOU MODAL ========================= */
+  .thankyou-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease;
+  }
+
+  .thankyou-modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .thankyou-modal {
+    width: 400px;
+    max-width: 90%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    padding: 24px;
+    text-align: center;
+
+    /* animation giống cart */
+    transform: scale(0.95) translateY(8px);
+    opacity: 0;
+    transition: all 0.25s ease;
+  }
+
+  .thankyou-modal-overlay.show .thankyou-modal {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+
+  .thankyou-content h3 {
+    font-size: 1.7rem; /* = cart-header h4 */
+    font-weight: 700;
+    color: var(--text-black);
+    margin-bottom: 8px;
+  }
+
+  .thankyou-content p {
+    font-size: 1.4rem; /* = cart-body */
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .thankyou-emoji {
+    font-size: 3.2rem;
+    margin-bottom: 12px;
+  }
+
+  .btn-close-thankyou {
+    padding: 12px;
+    font-size: 1.5rem; /* = btn-checkout */
+    font-weight: 600;
+    border-radius: 8px;
+    width: 100%;
+  }
+
+  /* ========================= RESPONSIVE HEADER ========================= */
+
+  /* Mobile & small tablet */
+  @media (max-width: 768px) {
+    /* Ẩn toàn bộ auth + cart */
+    .header-auth {
+      display: none !important;
+    }
+
+    /* Header layout */
+    .header-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Logo nhỏ gọn hơn */
+    .header-logo a {
+      font-size: 1.8rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* Search chiếm phần lớn không gian */
+    .header-search {
+      flex: 1;
+    }
+
+    .header-search input {
+      width: 100%;
+      font-size: 1.4rem;
+      padding: 8px 40px 8px 12px;
+    }
+
+    .header-search button {
+      right: 10px;
+    }
+
+    /* =========================
+   MOBILE MENU
+   ========================= */
+
+    .header-menu-btn {
+      display: none;
+      background: transparent;
+      border: none;
+      font-size: 2rem;
+      padding: 6px;
+      cursor: pointer;
+    }
+
+    /* Overlay */
+    .mobile-menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.25s ease;
+      display: none;
+    }
+
+    /* Menu panel */
+    .mobile-menu {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 100%;
+      background: #fff;
+      box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+      transform: translateX(-100%);
+      transition: 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Active */
+    .mobile-menu-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-menu-overlay.show .mobile-menu {
+      transform: translateX(0);
+    }
+
+    /* Header */
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      font-size: 1.6rem;
+      font-weight: 600;
+      border-bottom: 1px solid #eee;
+    }
+
+    .mobile-menu-close {
+      background: transparent;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* Auth content */
+    .mobile-auth {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .mobile-auth a,
+    .mobile-auth button {
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 8px 0;
+      cursor: pointer;
+      color: var(--text-black);
+    }
+
+    .mobile-auth a:hover,
+    .mobile-auth button:hover {
+      color: var(--text-blue);
+    }
+
+    .mobile-email {
+      font-size: 1.4rem;
+      color: #666;
+    }
+  }
+</style>
+
+<!--Header-->
+<header class="header">
+  <div class="header-container">
+    <!-- Logo -->
+    <div class="header-logo">
+      <a href="index.html">QTShop</a>
+    </div>
+
+    <!-- Search -->
+    <div class="header-search position-relative">
+      <input
+        type="text"
+        id="header-search-input"
+        placeholder="Tìm kiếm sản phẩm..."
+        autocomplete="off"
+      />
+      <button>
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+
+      <!-- SEARCH PREVIEW MODAL -->
+      <div id="search-preview" class="search-preview d-none"></div>
+    </div>
+
+    <!-- Mobile menu button -->
+    <button class="header-menu-btn d-md-none" type="button">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <!-- Auth buttons -->
+    <div class="header-auth">
+      <!-- CHƯA LOGIN -->
+      <div class="auth-guest">
+        <a href="login.html" class="btn-login">Đăng nhập</a>
+        <a href="#" class="btn-register">Đăng ký</a>
+      </div>
+
+      <!-- ĐÃ LOGIN -->
+      <div class="auth-user d-none">
+        <!-- Cart icon -->
+        <button class="header-cart" title="Giỏ hàng" type="button">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-badge d-none">0</span>
+        </button>
+        <span class="user-email" title=""></span>
+        <button class="btn-logout">Đăng xuất</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="mobile-menu-overlay d-md-none">
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <span>Menu</span>
+      <button class="mobile-menu-close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- GUEST -->
+    <div class="mobile-auth mobile-guest">
+      <a href="login.html">Đăng nhập</a>
+      <a href="#">Đăng ký</a>
+    </div>
+
+    <!-- USER -->
+    <div class="mobile-auth mobile-user d-none">
+      <span class="mobile-email"></span>
+      <a href="#" class="mobile-cart">
+        <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
+        <span class="cart-badge d-none">0</span>
+      </a>
+      <button class="mobile-logout">Đăng xuất</button>
+    </div>
+  </div>
+</div>
+<!--End of header-->
+
+<!-- CART MODAL -->
+<div class="cart-modal-overlay d-none">
+  <div class="cart-modal">
+    <!-- Header -->
+    <div class="cart-header">
+      <h4>Giỏ hàng</h4>
+      <button class="cart-close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Body -->
+    <div class="cart-body">
+      <!-- EMPTY STATE -->
+      <p class="cart-empty">Chưa có sản phẩm nào trong giỏ</p>
+
+      <!-- CART ITEM (sample UI) -->
+
+      <!-- <div class="cart-item">
+        <img src="..." />
+        <div class="cart-info">
+          <h6>Tên sản phẩm</h6>
+          <p>2.500.000 ₫</p>
+
+          <div class="cart-quantity">
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+          </div>
+        </div>
+      </div> -->
+    </div>
+
+    <!-- Footer -->
+    <div class="cart-footer">
+      <div class="cart-total">Tổng tiền: <strong>0 ₫</strong></div>
+
+      <div class="cart-actions">
+        <button class="btn-clear-cart">
+          <i class="fa-solid fa-trash"></i> Xóa tất cả
+        </button>
+
+        <button class="btn-checkout">Thanh toán</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- THANK YOU MODAL -->
+<div class="thankyou-modal-overlay d-none">
+  <div class="thankyou-modal">
+    <div class="thankyou-content">
+      <div class="thankyou-emoji">🎉</div>
+
+      <h3>Cảm ơn bạn đã mua hàng!</h3>
+      <p>Đơn hàng của bạn đã được ghi nhận 😄</p>
+
+      <button class="btn btn-primary btn-close-thankyou">Đóng</button>
+    </div>
+  </div>
+</div>

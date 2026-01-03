@@ -1,0 +1,166 @@
+<section class="brand-section">
+  <div class="brand-container">
+    <h2 class="brand-title">Thương hiệu nổi bật</h2>
+
+    <div class="brand-grid">
+      <!-- Column 1 -->
+      <div class="brand-col">
+        <div class="brand-item">
+          <img
+            src="https://cdn2.fptshop.com.vn/unsafe/128x0/filters:format(webp):quality(75)/small/logo_iphone_ngang_eac93ff477.png"
+            alt="Apple"
+          />
+        </div>
+        <div class="brand-item">
+          <img
+            src="https://cdn2.fptshop.com.vn/unsafe/128x0/filters:format(webp):quality(75)/small/logo_samsung_ngang_1624d75bd8.png"
+            alt="Samsung"
+          />
+        </div>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="brand-col">
+        <div class="brand-item">
+          <img
+            src="https://cdn2.fptshop.com.vn/unsafe/128x0/filters:format(webp):quality(75)/small/logo_oppo_ngang_68d31fcd73.png"
+            alt="Oppo"
+          />
+        </div>
+        <div class="brand-item">
+          <img
+            src="https://cdn2.fptshop.com.vn/unsafe/128x0/filters:format(webp):quality(75)/small/logo_vivo_ngang_45494ff733.png"
+            alt="Vivo"
+          />
+        </div>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="brand-col">
+        <div class="brand-item">
+          <img
+            src="https://cdn2.fptshop.com.vn/unsafe/128x0/filters:format(webp):quality(75)/small/logo_xiaomi_ngang_0faf267234.png"
+            alt="Xiaomi"
+          />
+        </div>
+        <div class="brand-item">
+          <img
+            src="https://cdn2.fptshop.com.vn/unsafe/128x0/filters:format(webp):quality(75)/small/logo_realme_ngang_0185815a13.png"
+            alt="Realme"
+          />
+        </div>
+      </div>
+
+      <!-- Column 4 -->
+      <div class="brand-col">
+        <div class="brand-item">
+          <img
+            src="https://cdn2.fptshop.com.vn/unsafe/128x0/filters:format(webp):quality(75)/small/logo_nokia_ngang_15416db151.png"
+            alt="Nokia"
+          />
+        </div>
+        <div class="brand-item brand-more">
+          <span>+10<br />thương hiệu</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .brand-section {
+      margin: 4rem 0;
+      padding: var(--section-padding-y) 0;
+      background: var(--section-bg-soft);
+    }
+
+    .brand-container {
+      max-width: 1500px;
+      margin: 0 auto;
+      background: var(--section-bg-white);
+      border-radius: 1.6rem;
+      padding: 2.4rem 1.4rem;
+    }
+
+    .brand-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .brand-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.6rem;
+    }
+
+    .brand-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+
+    .brand-item {
+      background: var(--background-white);
+      border-radius: 12px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .brand-item img {
+      max-width: 80%;
+      max-height: 40px;
+      object-fit: contain;
+      filter: grayscale(100%);
+      transition: 0.3s ease;
+    }
+
+    .brand-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    .brand-item:hover img {
+      filter: grayscale(0%);
+    }
+
+    .brand-more {
+      background: var(--background-slide);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text-blue);
+      text-align: center;
+    }
+
+    .brand-more span {
+      line-height: 1.4;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .brand-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 576px) {
+      .brand-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-col {
+        flex-direction: row;
+      }
+
+      .brand-item {
+        flex: 1;
+      }
+    }
+  </style>
+</section>

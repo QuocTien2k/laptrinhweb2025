@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <!-- Owl carousel -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <title>Shipper Code</title>
+    <link rel="icon" href="images/shipper-chibi.png" type="image/x-icon" />
+  </head>
+  <style>
+    /* ===== SECTION HEADER (TITLE) ===== */
+    .section-header {
+      position: relative;
+      margin-bottom: 3.2rem;
+      padding-top: 7rem;
+    }
+
+    .section-header h2 {
+      font-family: "Golos Text", sans-serif;
+      font-size: 3.2rem;
+      font-weight: 600;
+      color: var(--text-black);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    /* underline effect */
+    .section-header h2::after {
+      content: "";
+      display: block;
+      width: 6rem;
+      height: 0.3rem;
+      background-color: var(--text-blue);
+      margin: 0.8rem auto 0;
+      border-radius: 2px;
+    }
+
+    .section-header p {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--text-input);
+      max-width: 520px;
+      margin: 0.8rem auto 0;
+      line-height: 1.6;
+    }
+  </style>
+  <body>
+    <!-- Header -->
+    <div id="header-component"></div>
+
+    <section class="product-section container-fluid my-5">
+      <div class="section-header text-center mb-4">
+        <h2>Toàn bộ sản phẩm</h2>
+        <p>Khám phá đầy đủ danh sách sản phẩm</p>
+      </div>
+
+      <div class="row px-4">
+        <!-- FILTER -->
+        <div class="col-md-3 product-filter card">
+          <div class="card-body">
+            <h4>Bộ lọc</h4>
+
+            <div class="filter-group">
+              <h5>Thương hiệu</h5>
+              <div id="filter-brand"></div>
+            </div>
+
+            <div class="filter-group">
+              <h5>Giá tiền</h5>
+              <select id="filter-price" class="form-select">
+                <option value="">Tất cả</option>
+                <option value="0-3000000">Dưới 3 triệu</option>
+                <option value="3000000-7000000">3 - 7 triệu</option>
+                <option value="7000000-15000000">7 - 15 triệu</option>
+                <option value="15000000-999999999">Trên 15 triệu</option>
+              </select>
+            </div>
+
+            <button id="reset-filter" class="btn btn-outline-primary mt-3">
+              Reset
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUCT LIST -->
+        <div class="col-md-9">
+          <div class="card">
+            <div class="card-body">
+              <div id="product-list" class="row g-4"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-component"></div>
+
+    <!-- jQuery PHẢI ĐẶT TRƯỚC -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Owl Carousel PHẢI ĐẶT TRƯỚC component -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <!-- Load components -->
+    <script src="js/components.js"></script>
+    <script type="module" src="js/index.js"></script>
+    <script type="module" src="js/products.js"></script>
+  </body>
+</html>
