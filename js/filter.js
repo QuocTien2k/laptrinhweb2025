@@ -3,10 +3,12 @@ import { renderProducts } from "./product.js";
 import { renderEmptyProduct } from "./empty.js";
 
 let currentData = [...filterData];
+let currentLimit = null;
 
-export function initFilter() {
+export function initFilter(limit = null) {
+  currentLimit = limit; // 🔥 LƯU LIMIT
   renderBrandFilter();
-  renderProducts(filterData);
+  renderProducts(filterData, currentLimit);
 
   document
     .getElementById("filter-price")
@@ -62,7 +64,7 @@ function applyFilter() {
   if (currentData.length === 0) {
     renderEmptyProduct();
   } else {
-    renderProducts(currentData);
+    renderProducts(currentData, currentLimit);
   }
 }
 
@@ -74,5 +76,5 @@ function resetFilter() {
   document.getElementById("filter-price").value = "";
 
   currentData = [...filterData];
-  renderProducts(currentData);
+  renderProducts(currentData, currentLimit);
 }

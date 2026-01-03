@@ -1,10 +1,14 @@
 import { addToCart } from "./cart.js";
 
-export function renderProducts(products, limit = 0) {
+export function renderProducts(products, limit = null) {
   const productList = document.getElementById("product-list");
   productList.innerHTML = "";
 
-  products.slice(0, limit).forEach((item) => {
+  const displayProducts = limit
+    ? products.slice(0, limit) // có limit → cắt
+    : products; // không có → render hết
+
+  displayProducts.forEach((item) => {
     const col = document.createElement("div");
     col.className = "col-lg-3 col-md-4 col-sm-6";
 

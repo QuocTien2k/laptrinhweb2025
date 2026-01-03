@@ -1,13 +1,8 @@
 import { initFilter } from "./filter.js";
-import { renderProducts } from "./product.js";
-import { filterData } from "./data.js";
 import { initSearch } from "./search.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  initFilter();
-
-  // Trang chủ render 8 sản phẩm
-  renderProducts(filterData, 8);
+  initFilter(8); // Trang chủ render 8 sản phẩm
 
   // 🔥 Đợi header load xong rồi mới init search
   const waitHeader = setInterval(() => {
