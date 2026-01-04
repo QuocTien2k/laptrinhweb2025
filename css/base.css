@@ -31,7 +31,7 @@
     --background-green-hover: rgba(0, 171, 85, 0.12);
     --section-padding-y: 4.8rem;
     --section-padding-y-lg: 6.4rem;
-    --section-bg-soft: #f5f6fa;
+    --section-bg-soft: rgb(244, 245, 248);
     --section-bg-white: #ffffff;
 
 }  
@@ -46,6 +46,10 @@ html{
 
 body{
     background: #f5f6fa;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 @keyframes left {
@@ -72,17 +76,3 @@ button.active{
     border-radius: 8px;
 }
 /*End of digital clock*/
-table #mycart tr th{
-    border: none;
-}
-th,td{
-    text-align: center;
-    border-bottom: 1px solid var(--text-black);
-    font-size: 12px;
-}
-th{
-    padding: 10px;
-}
-td img{
-    width: 100%;
-}

@@ -1,0 +1,455 @@
+<style>
+  /* ====================== FOOTER WRAPPER ====================== */
+  .footer {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.02),
+        rgba(0, 0, 0, 0.6)
+      ),
+      #0f172a;
+    font-family: "Nunito", sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: #d1d5db;
+  }
+
+  /* ====================== FOOTER TITLES ====================== */
+  .footer-title {
+    font-family: "Golos Text", sans-serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    letter-spacing: 0.08rem;
+    margin-bottom: 2rem;
+    color: #ffffff;
+    position: relative;
+  }
+
+  .footer-title::after {
+    content: "";
+    width: 3.2rem;
+    height: 0.3rem;
+    background: var(--text-blue);
+    display: block;
+    margin-top: 0.8rem;
+    border-radius: 2px;
+  }
+
+  /* ====================== FOOTER LIST ====================== */
+  .footer-list li {
+    font-size: 1.55rem;
+    margin-bottom: 1.2rem;
+    color: #cbd5e1;
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-list i {
+    font-size: 1.6rem;
+    margin-right: 1rem;
+    color: var(--text-blue);
+  }
+
+  /* ====================== FOOTER LINKS ====================== */
+  .footer-links li {
+    margin-bottom: 1.2rem;
+  }
+
+  .footer-links a {
+    font-size: 1.55rem;
+    font-weight: 500;
+    color: #cbd5e1;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: all 0.35s ease;
+  }
+
+  .footer-links a:hover {
+    color: var(--text-blue);
+    transform: translateX(4px);
+  }
+
+  .footer-links a i {
+    font-size: 1.6rem;
+  }
+
+  /* ====================== NEWSLETTER ====================== */
+  .newsletter-form {
+    background: rgba(255, 255, 255, 0.04);
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    gap: 0.8rem;
+  }
+
+  .newsletter-form input {
+    font-size: 1.6rem;
+    padding: 1.3rem 1.5rem;
+    border-radius: 0.8rem;
+  }
+
+  .newsletter-form button {
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 0 2.4rem;
+    border-radius: 0.8rem;
+    white-space: nowrap;
+  }
+
+  /* ====================== APP BUTTONS ====================== */
+  .footer .btn-outline-light {
+    font-size: 1.55rem;
+    padding: 1.2rem 1.6rem;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .footer .btn-outline-light:hover {
+    background: var(--text-blue);
+    border-color: var(--text-blue);
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  /* ====================== DIVIDER ====================== */
+  .footer hr {
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  /* ====================== COPYRIGHT ====================== */
+  .footer small {
+    font-size: 1.35rem;
+    color: #9ca3af;
+  }
+
+  /* Copyright interactive */
+  .footer-copyright {
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+  }
+
+  /* Underline effect */
+  .footer-copyright::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.3rem;
+    width: 100%;
+    height: 0.2rem;
+    background: var(--text-blue);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.35s ease;
+    border-radius: 2px;
+  }
+
+  /* Hover state */
+  .footer-copyright:hover {
+    color: var(--text-blue) !important;
+  }
+
+  .footer-copyright:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* ====================== INFO MODAL ====================== */
+  .info-modal {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.35s ease;
+    z-index: 9999;
+  }
+
+  .info-modal.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Modal box */
+  .info-modal-content {
+    width: 92%;
+    max-width: 520px;
+    background: linear-gradient(135deg, #ffffff 0%, #f5f7ff 100%);
+    border-radius: 1.6rem;
+    padding: 3.2rem;
+    position: relative;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    animation: modalScaleUp 0.4s ease;
+  }
+
+  /* Header */
+  .info-modal-header {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 2.4rem;
+    justify-content: center;
+  }
+
+  .info-modal-header i {
+    font-size: 3.2rem;
+    color: var(--text-blue);
+  }
+
+  .info-modal-header h4 {
+    font-family: "Golos Text", sans-serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--text-black);
+  }
+
+  /* List */
+  .info-modal-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.4rem;
+    font-size: 1.7rem;
+    padding: 1.2rem 1.4rem;
+    border-radius: 1rem;
+    margin-bottom: 1.4rem;
+    background: rgba(10, 104, 255, 0.04);
+    transition: all 0.3s ease;
+  }
+
+  .info-modal-list li:hover {
+    background: rgba(10, 104, 255, 0.08);
+    transform: translateX(4px);
+  }
+
+  .info-modal-list i {
+    font-size: 1.8rem;
+    color: var(--text-blue);
+    margin-top: 0.2rem;
+  }
+
+  .info-modal-list strong {
+    color: #111827;
+  }
+
+  /* Close button */
+  .info-modal-close {
+    position: absolute;
+    top: 1.6rem;
+    right: 1.8rem;
+    background: rgba(10, 104, 255, 0.1);
+    /* background: rgba(255, 66, 79, 0.15); */
+    border-radius: 50%;
+    width: 3.8rem;
+    height: 3.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .info-modal-close i {
+    font-size: 1.8rem;
+    /* color: var(--text-blue); */
+    color: var(--text-orange);
+  }
+
+  .info-modal-close:hover {
+    /* background: var(--text-blue); */
+    background: var(--text-orange);
+    transform: rotate(90deg);
+  }
+
+  .info-modal-close:hover i {
+    color: #fff;
+  }
+
+  /* Animation */
+  @keyframes modalScaleUp {
+    from {
+      transform: scale(0.9) translateY(10px);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+  }
+</style>
+
+<footer class="footer bg-dark text-light pt-5">
+  <div class="container">
+    <!-- Logo + Newsletter -->
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-6 mb-4 mb-lg-0 d-flex align-items-center">
+        <i class="fa-solid fa-cart-shopping fs-2 text-primary me-3"></i>
+        <div>
+          <h5 class="fw-bold mb-1">QTShop</h5>
+          <small class="text-muted">
+            Đăng ký để nhận thông báo & khuyến mãi mới nhất
+          </small>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <form class="newsletter-form d-flex">
+          <input
+            type="email"
+            class="form-control rounded-start"
+            placeholder="Nhập email của bạn..."
+            required
+          />
+          <button class="btn btn-primary rounded-end px-4">Đăng ký</button>
+        </form>
+      </div>
+    </div>
+
+    <hr class="border-secondary" />
+
+    <!-- Footer Content -->
+    <div class="row mt-4">
+      <!-- Contact -->
+      <div class="col-md-3 mb-4">
+        <h6 class="footer-title">Liên hệ</h6>
+        <ul class="footer-list">
+          <li><i class="fa-solid fa-phone me-2"></i> 0909 123 456</li>
+          <li><i class="fa-solid fa-clock me-2"></i> 8:00 - 22:00</li>
+          <li>
+            <i class="fa-solid fa-envelope me-2"></i> support@mywebsite.com
+          </li>
+          <li><i class="fa-solid fa-location-dot me-2"></i> TP. Hồ Chí Minh</li>
+        </ul>
+      </div>
+
+      <!-- Mobile App -->
+      <div class="col-md-3 mb-4">
+        <h6 class="footer-title">Ứng dụng</h6>
+        <a href="#" class="btn btn-outline-light w-100 mb-2 text-start">
+          <i class="fa-brands fa-apple me-2 fs-5"></i> App Store
+        </a>
+        <a href="#" class="btn btn-outline-light w-100 text-start">
+          <i class="fa-brands fa-google-play me-2 fs-5"></i> Google Play
+        </a>
+      </div>
+
+      <!-- Social -->
+      <div class="col-md-3 mb-4">
+        <h6 class="footer-title">Theo dõi</h6>
+        <ul class="footer-links">
+          <li>
+            <a href="#"><i class="fa-brands fa-facebook me-2"></i>Facebook</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-brands fa-instagram me-2"></i>Instagram</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-brands fa-youtube me-2"></i>Youtube</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-brands fa-twitter me-2"></i>Twitter</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Categories -->
+      <div class="col-md-3 mb-4">
+        <h6 class="footer-title">Danh mục</h6>
+        <ul class="footer-links">
+          <li><a href="#">Laptop</a></li>
+          <li><a href="#">Điện thoại</a></li>
+          <li><a href="#">Phụ kiện</a></li>
+          <li><a href="#">Khuyến mãi</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="border-secondary mt-4" />
+
+    <!-- Copyright -->
+    <div class="text-center py-3">
+      <small
+        class="text-muted footer-copyright cursor-pointer"
+        id="openInfoModal"
+      >
+        © <span id="year"></span> QTShop. All rights reserved.
+      </small>
+    </div>
+  </div>
+</footer>
+
+<!-- INFO MODAL -->
+<div class="info-modal" id="infoModal">
+  <div class="info-modal-content">
+    <button class="info-modal-close" id="closeInfoModal">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="info-modal-header">
+      <i class="fa-solid fa-user-graduate"></i>
+      <h4>Thông tin sinh viên</h4>
+    </div>
+
+    <ul class="info-modal-list">
+      <li>
+        <i class="fa-solid fa-user"></i>
+        <span><strong>Họ và tên:</strong> Đỗ Quốc Tiến</span>
+      </li>
+      <li>
+        <i class="fa-solid fa-id-card"></i>
+        <span><strong>MSSV:</strong> 181A010249</span>
+      </li>
+      <li>
+        <i class="fa-solid fa-code"></i>
+        <span><strong>Môn học:</strong> Lập trình web</span>
+      </li>
+      <li>
+        <i class="fa-solid fa-layer-group"></i>
+        <span><strong>Học kỳ:</strong> 2</span>
+      </li>
+      <li>
+        <i class="fa-solid fa-calendar-days"></i>
+        <span><strong>Năm học:</strong> 2025 – 2026</span>
+      </li>
+      <li>
+        <i class="fa-solid fa-chalkboard-user"></i>
+        <span><strong>Giảng viên:</strong> TS Nguyễn Quang Tấn</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const openBtn = document.getElementById("openInfoModal");
+  const modal = document.getElementById("infoModal");
+  const closeBtn = document.getElementById("closeInfoModal");
+
+  // Open modal
+  openBtn.addEventListener("click", () => {
+    modal.classList.add("active");
+  });
+
+  // Close button
+  closeBtn.addEventListener("click", () => {
+    modal.classList.remove("active");
+  });
+
+  // Click outside modal
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.classList.remove("active");
+    }
+  });
+
+  // ESC key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      modal.classList.remove("active");
+    }
+  });
+</script>

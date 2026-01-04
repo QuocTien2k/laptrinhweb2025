@@ -12,7 +12,7 @@ $(document).ready(function () {
   $("#slideshow-component").load("components/slideshow.html");
   $("#brand-component").load("components/brand.html");
   $("#partner-component").load("components/partner.html");
-  // $("#footer-component").load("components/footer.html");
+  $("#footer-component").load("components/footer.html");
 });
 
 //đăng nhập
