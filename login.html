@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>Đăng nhập</title>
 
     <!-- Base CSS -->
     <link rel="stylesheet" href="css/base.css" />
@@ -83,6 +83,38 @@
       .btn-login:hover {
         opacity: 0.9;
       }
+
+      .login-links {
+        margin-top: 12px;
+        text-align: center;
+      }
+
+      /* Link quay về – trung tính */
+      .link-back {
+        display: block;
+        font-size: 1.4rem;
+        color: #666;
+        text-decoration: none;
+      }
+
+      .link-back:hover {
+        color: var(--text-black);
+        text-decoration: underline;
+      }
+
+      /* Link đăng ký – secondary action */
+      .link-signup {
+        display: block;
+        margin-top: 6px;
+        font-size: 1.4rem;
+        color: var(--text-orange);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .link-signup:hover {
+        text-decoration: underline;
+      }
     </style>
   </head>
 
@@ -102,23 +134,10 @@
 
       <button class="btn-login" type="submit">Đăng nhập</button>
 
-      <div style="margin-top: 12px; text-align: center">
-        <a
-          href="index.html"
-          style="font-size: 1.4rem; color: var(--text-blue); display: block"
-        >
-          ← Quay lại trang chủ
-        </a>
+      <div class="login-links">
+        <a href="index.html" class="link-back"> ← Quay lại trang chủ </a>
 
-        <a
-          href="signup.html"
-          style="
-            font-size: 1.4rem;
-            color: var(--text-blue);
-            display: block;
-            margin-top: 6px;
-          "
-        >
+        <a href="signup.html" class="link-signup">
           Chưa có tài khoản? Đăng ký
         </a>
       </div>
