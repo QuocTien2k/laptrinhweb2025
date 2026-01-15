@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>Signup</title>
 
     <!-- Base CSS -->
     <link rel="stylesheet" href="css/base.css" />
@@ -14,7 +14,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
 
-    <!-- CUSTOM STYLE -->
     <style>
       body {
         background: var(--background-small);
@@ -25,18 +24,17 @@
         font-size: 1.6rem;
       }
 
-      .login-box {
-        width: 360px;
+      .signup-box {
+        width: 380px;
         background: var(--background-white);
         padding: 24px;
         border-radius: 8px;
         box-shadow: var(--box-shadow);
       }
 
-      .login-box h2 {
+      .signup-box h2 {
         text-align: center;
         margin-bottom: 20px;
-        color: var(--text-black);
       }
 
       .form-control {
@@ -58,19 +56,18 @@
 
       .form-control small {
         display: block;
-        min-height: 16px; /* giữ chỗ cố định */
+        min-height: 16px;
         font-size: 1.3rem;
         color: var(--text-orange);
         margin-top: 4px;
-        opacity: 0; /* ẩn nhưng vẫn chiếm chỗ */
-        transition: opacity 0.2s ease;
+        opacity: 0;
       }
 
       .form-control.error small {
         opacity: 1;
       }
 
-      .btn-login {
+      .btn-signup {
         width: 100%;
         padding: 10px;
         border-radius: 6px;
@@ -80,15 +77,15 @@
         cursor: pointer;
       }
 
-      .btn-login:hover {
+      .btn-signup:hover {
         opacity: 0.9;
       }
     </style>
   </head>
 
   <body>
-    <form class="login-box" id="loginForm">
-      <h2>Đăng nhập</h2>
+    <form class="signup-box" id="signupForm">
+      <h2>Đăng ký</h2>
 
       <div class="form-control">
         <input type="text" id="email" placeholder="Email" />
@@ -100,35 +97,29 @@
         <small></small>
       </div>
 
-      <button class="btn-login" type="submit">Đăng nhập</button>
+      <div class="form-control">
+        <input
+          type="password"
+          id="confirmPassword"
+          placeholder="Nhập lại mật khẩu"
+        />
+        <small></small>
+      </div>
+
+      <button class="btn-signup" type="submit">Đăng ký</button>
 
       <div style="margin-top: 12px; text-align: center">
-        <a
-          href="index.html"
-          style="font-size: 1.4rem; color: var(--text-blue); display: block"
-        >
-          ← Quay lại trang chủ
-        </a>
-
-        <a
-          href="signup.html"
-          style="
-            font-size: 1.4rem;
-            color: var(--text-blue);
-            display: block;
-            margin-top: 6px;
-          "
-        >
-          Chưa có tài khoản? Đăng ký
+        <a href="login.html" style="font-size: 1.4rem; color: var(--text-blue)">
+          → Đã có tài khoản? Đăng nhập
         </a>
       </div>
     </form>
 
-    <!-- SCRIPT XỬ LÝ LOGIN -->
     <script>
-      const form = document.getElementById("loginForm");
+      const form = document.getElementById("signupForm");
       const emailInput = document.getElementById("email");
       const passwordInput = document.getElementById("password");
+      const confirmInput = document.getElementById("confirmPassword");
 
       function showError(input, message) {
         const formControl = input.parentElement;
@@ -147,8 +138,7 @@
         return regex.test(email);
       }
 
-      [emailInput, passwordInput].forEach((input) => {
-        input.addEventListener("focus", () => clearError(input));
+      [emailInput, passwordInput, confirmInput].forEach((input) => {
         input.addEventListener("input", () => clearError(input));
       });
 
@@ -159,13 +149,13 @@
 
         const email = emailInput.value.trim();
         const password = passwordInput.value.trim();
+        const confirmPassword = confirmInput.value.trim();
 
-        /* ===== VALIDATE FORM ===== */
         if (email === "") {
           showError(emailInput, "Vui lòng nhập email");
           isError = true;
         } else if (!isValidEmail(email)) {
-          showError(emailInput, "Email không đúng định dạng");
+          showError(emailInput, "Email không hợp lệ");
           isError = true;
         }
 
@@ -177,32 +167,28 @@
           isError = true;
         }
 
-        /* ❌ Nếu form lỗi → dừng luôn */
-        if (isError) return;
-
-        /* ===== KIỂM TRA USER ĐÃ ĐĂNG KÝ ===== */
-        const savedUser = JSON.parse(localStorage.getItem("userAccount"));
-
-        if (
-          !savedUser ||
-          savedUser.email !== email ||
-          savedUser.password !== password
-        ) {
-          showError(emailInput, "Email hoặc mật khẩu không đúng");
-          showError(passwordInput, "");
-          return;
+        if (confirmPassword === "") {
+          showError(confirmInput, "Vui lòng nhập lại mật khẩu");
+          isError = true;
+        } else if (confirmPassword !== password) {
+          showError(confirmInput, "Mật khẩu không khớp");
+          isError = true;
         }
 
-        /* ===== LOGIN THÀNH CÔNG ===== */
-        localStorage.setItem(
-          "userLogin",
-          JSON.stringify({
-            email,
-            loginAt: new Date().toISOString(),
-          })
-        );
+        if (!isError) {
+          // Lưu user vào localStorage (giả lập database)
+          localStorage.setItem(
+            "userAccount",
+            JSON.stringify({
+              email,
+              password,
+              createdAt: new Date().toISOString(),
+            })
+          );
 
-        window.location.href = "index.html";
+          alert("Đăng ký thành công! Vui lòng đăng nhập.");
+          window.location.href = "login.html";
+        }
       });
     </script>
   </body>

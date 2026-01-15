@@ -115,7 +115,7 @@ export const filterData = [
     name: "Laptop Asus Vivobook 15X OLED A1503ZA L1422W",
     price: 17990000,
     picture:
-      "https://product.hstatic.net/1000026716/product/gearvn-laptop-asus-vivobook-15x-oled-a1503za-l1422w-1_7883b4cbe6d84d64a9b1ca4a9ed90f01_large.png",
+      "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:format(webp):quality(75)/asus_tuf_gaming_fa506ncg_01_a7b188268b.png",
     type: "asus",
     discount: "",
   },
